@@ -16,15 +16,14 @@ public class UnknownCommand implements Command
         return instance;
     }
 
-    private UnknownCommand()
-    {}
+    private UnknownCommand() {}
 
     public static final String NAME = "unknown";
 
     @Override
     public void execute(ApplicationContext ap)
     {
-        System.out.println("you've entered unknown command");
+        System.out.println("You've entered unknown command");
     }
 
     @Override
@@ -32,4 +31,5 @@ public class UnknownCommand implements Command
     {
         return NAME;
     }
+
 }

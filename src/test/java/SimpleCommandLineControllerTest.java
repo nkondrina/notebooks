@@ -50,12 +50,12 @@ public class SimpleCommandLineControllerTest
     public void testForCommandAndSingleArg()
     {
         CommandLineController c = SimpleCommandLineController.getInstance();
-        Params p = c.parseCommandLineString("command arg");
+        Params p = c.parseCommandLineString("command:arg");
 
         assertEquals("command", p.getCommandName());
         assertEquals("arg", p.getCommandArgs());
 
-        p = c.parseCommandLineString("    command     arg     ");
+        p = c.parseCommandLineString("    command   :   arg     ");
 
         assertEquals("command", p.getCommandName());
         assertEquals("arg", p.getCommandArgs());
@@ -64,7 +64,7 @@ public class SimpleCommandLineControllerTest
     @Test
     public void testForCommandAndMultiArgs()
     {
-        CommandLineController c = SimpleCommandLineController.getInstance();
+       /* CommandLineController c = SimpleCommandLineController.getInstance();
         Params p = c.parseCommandLineString("command arg1 agr2 agr3");
 
         assertEquals("command", p.getCommandName());
@@ -74,5 +74,16 @@ public class SimpleCommandLineControllerTest
 
         assertEquals("command", p.getCommandName());
         assertEquals("arg1 agr2 agr3", p.getCommandArgs());
+        */
+        CommandLineController c = SimpleCommandLineController.getInstance();
+        Params p = c.parseCommandLineString("command:arg1/agr2/agr3");
+
+        assertEquals("command", p.getCommandName());
+        assertEquals("arg1/agr2/agr3", p.getCommandArgs());
+
+        p = c.parseCommandLineString("      command   :   arg1   /   agr2   /   agr3     ");
+
+        assertEquals("command", p.getCommandName());
+        assertEquals("arg1/agr2/agr3", p.getCommandArgs());
     }
 }

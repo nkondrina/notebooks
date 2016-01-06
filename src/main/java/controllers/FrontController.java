@@ -24,7 +24,7 @@ public class FrontController
 
     private FrontController()
     {
-       this.ap = new AppContext();
+        this.ap = new AppContext();
     }
 
     public void init(ConsoleView view, Executor executor)
@@ -45,12 +45,7 @@ public class FrontController
         do
         {
             cmd_line = getView().getNextCommandLine();
-
             getExecutor().execute(cmd_line);
-
-
-
-
         } while (!exit);
     }
 

@@ -12,10 +12,12 @@ public class PersonTest {
     @Test
     public void equalsTest()
     {
-        Person p1 = new Person("Ivanov", new HashSet());
-        Person p2 = new Person("Ivanov", new HashSet());
+        Person p1 = new Person("Ivanov", new HashSet(), new HashSet());
+        Person p2 = new Person("Ivanov", new HashSet(), new HashSet());
 
         assertEquals("Equals Persons", p1, p2);
     }
+
+
 
 }

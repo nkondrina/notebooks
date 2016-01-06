@@ -16,7 +16,6 @@ public class CommandListBuilder extends AbstractCommandBuilder
     @Inject
     public CommandListBuilder(StorageService storageService) {
         super(storageService);
-
     }
 
     @Override
@@ -26,3 +25,4 @@ public class CommandListBuilder extends AbstractCommandBuilder
     }
 
 }
+

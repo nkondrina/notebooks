@@ -13,20 +13,20 @@ public class CommandAdd extends AbstractCommand
     public static final String NAME = "add";
 
 
-    public CommandAdd(String person, String phone, StorageService storage)
+    public CommandAdd(String person, String phone, String adress, StorageService storage)
     {
         super(storage);
         this.person = person;
         this.phone = phone;
+        this.adress = adress;
     }
 
     @Override
     public void execute(ApplicationContext ap)
     {
-
-        getStorage().add(this.person, this.phone);
-
-        System.out.println(getName() + ": person " + this.person + " was added to the book, phone is: " + this.phone);
+        getStorage().add(this.person, this.phone, this.adress);
+        System.out.println(getName() + ": person '" + this.person + "' was added to the book, phone is: '" + this.phone +
+                "' adress is: '" + this.adress+"'");
     }
 
     @Override
@@ -36,5 +36,5 @@ public class CommandAdd extends AbstractCommand
 
     private String person;
     private String phone;
-
+    private String adress;
 }

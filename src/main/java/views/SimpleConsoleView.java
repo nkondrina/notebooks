@@ -24,6 +24,16 @@ public class SimpleConsoleView implements ConsoleView
     @Override
     public String getNextCommandLine()
     {
+        String str="***************************\n" +
+                "ENTER THE FOLLOWING COMMAND:\n" +
+                "1) add:name/phone/adress <- to add a new person \n" +
+                "2) list <- to view existing records \n" +
+                "3) delete:id <- to remove a person by number \n" +
+                "4) update:name/phone/adress/id <- to update the data about the person \n" +
+                "5) exit <- for application exit \n" +
+                "***************************";
+
+        System.out.println(str);
         System.out.print("-> ");
         return in.nextLine();
     }

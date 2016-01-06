@@ -15,13 +15,12 @@ public class BookTest {
     public void fillBook()
     {
         Set<Person> persons = new HashSet<Person>();
-        persons.add(new Person("Ivan Ivanovich", new HashSet()));
-        persons.add(new Person("Petr", new HashSet()));
-        persons.add(new Person("Sidor", new HashSet()));
+        persons.add(new Person("Ivan Ivanovich", new HashSet(), new HashSet()));
+        persons.add(new Person("Petr", new HashSet(), new HashSet()));
+        persons.add(new Person("Sidor", new HashSet(), new HashSet()));
         Book book = new Book(persons);
 
         Assert.assertNotNull(book.getPersons());
         Assert.assertFalse(book.getPersons().isEmpty());
     }
-
 }

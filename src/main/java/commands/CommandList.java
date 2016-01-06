@@ -1,6 +1,7 @@
 package commands;
 
 import controllers.ApplicationContext;
+import model.Adress;
 import model.Person;
 import model.Phone;
 import services.StorageService;
@@ -26,18 +27,27 @@ public class CommandList extends AbstractCommand
     public void execute(ApplicationContext ap)
     {
         List<Person> persons = getStorage().list();
-
-        for (Person p : persons)
+        System.out.println("***************************\n");
+        for (Person p : persons) {
+            // if (persons.size() != 0)
             printPerson(p);
-
+        }
     }
 
     private void printPerson(Person person)
     {
         StringBuilder sb = new StringBuilder();
-        sb.append("Person: ").append(person.getName()).append("\n").append("phones: ");
+
+        sb.append("Person: ").append(person.getName()).append("\n\t").append("phones: ");//append("\n").append("adresses: ");
+
         for (Phone phone : person.getPhones())
-            sb.append(phone.getPhone()).append("\n");
+            sb.append(phone.getPhone()).append("\n\t");
+
+        sb.append("adresses: ");
+        for (Adress adress : person.getAdresses())
+            sb.append(adress.getAdress()).append("\n\t");
+
+        sb.append("id: ").append(person.getId()).append("\n\t");
 
         System.out.println(sb.toString());
     }
@@ -46,5 +56,6 @@ public class CommandList extends AbstractCommand
     public String getName() {
         return NAME;
     }
+
 
 }
