@@ -24,7 +24,7 @@ public class SimpleConsoleView implements ConsoleView
     @Override
     public String getNextCommandLine()
     {
-        System.out.print(">> ");
+        System.out.print("-> ");
         return in.nextLine();
     }
 
